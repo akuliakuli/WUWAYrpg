@@ -1,0 +1,26 @@
+﻿<Window x:Class="WPFUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFUI"
+        mc:Ignorable="d"
+        Title="Pave the way for the wu" Height="768" Width="1024">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="300"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="320"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="#03120E" Content="Menu"></Label>
+        <Label Grid.Row="1" Grid.Column="0" Background="#3E505B" Content="Warrior's info"></Label>
+        <Label Grid.Row="1" Grid.Column="1" Background="#C7CEDB" Content="Game Data"></Label>
+        <Label Grid.Row="2" Grid.Column="0" Background="#26413C" Content="Inventory"></Label>
+        <Label Grid.Row="2" Grid.Column="1" Background="#8AB0AB" Content="Combat"></Label>
+    </Grid>
+</Window>
