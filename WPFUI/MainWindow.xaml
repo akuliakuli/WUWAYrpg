@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:WPFUI"
         mc:Ignorable="d"
         Title="Pave the way for the wu" Height="768" Width="1024">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -46,7 +49,6 @@
             <Label Grid.Row="4" Grid.Column="1" Content="{Binding CurrentPlayer.ExperiencePoints}"/>
             <Label Grid.Row="5" Grid.Column="0" Content="Level:"/>
             <Label Grid.Row="5" Grid.Column="1" Content="{Binding CurrentPlayer.Level}"/>
-            <Button Grid.Row="6" Grid.Column="1" Content="Add XP" Click="ButtonBase_OnClick"></Button>
         </Grid>
         <Grid Grid.Row="1" Grid.Column="1"
               Background="#C7CEDB">
@@ -91,6 +93,49 @@
             </Border>
         </Grid>
         <Label Grid.Row="2" Grid.Column="0" Background="#26413C" Content="Inventory"></Label>
-        <Label Grid.Row="2" Grid.Column="1" Background="#93B7BE" Content="Combat"></Label>
+        <Grid Grid.Row="2" Grid.Column="1"
+      Background="#93B7BE">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="255" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row="0" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                
+                <Button Grid.Row="0" Grid.Column="1" 
+                    Height="25" Width="65" Margin="10" 
+                    Visibility="{Binding HasLocationToNorth, Converter={StaticResource BooleanToVisibility}}"
+                    Click="OnClick_MoveNorth"
+                    Content="North"/>
+                 <Button Grid.Row="1" Grid.Column="0" 
+                    Height="25" Width="65" Margin="10"
+                    Visibility="{Binding HasLocationToWest, Converter={StaticResource BooleanToVisibility}}"
+                    Click="OnClick_MoveWest"
+                    Content="West"/>
+                 <Button Grid.Row="1" Grid.Column="2" 
+                    Height="25" Width="65" Margin="10"
+                    Visibility="{Binding HasLocationToEast, Converter={StaticResource BooleanToVisibility}}"
+                    Click="OnClick_MoveEast"
+                    Content="East"/>
+                  <Button Grid.Row="2" Grid.Column="1" 
+                    Height="25" Width="65" Margin="10"
+                    Visibility="{Binding HasLocationToSouth, Converter={StaticResource BooleanToVisibility}}"
+                    Click="OnClick_MoveSouth"
+                    Content="South"/>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>
