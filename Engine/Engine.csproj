@@ -16,6 +16,7 @@
     <None Remove="Images\Locations\LateBloomGarden.png" />
     <None Remove="Images\Locations\NorthernLightForest.png" />
     <None Remove="Images\Locations\Seller.png" />
+    <None Remove="Images\Locations\WesternBorder.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,6 +29,7 @@
     <Resource Include="Images\Locations\LateBloomGarden.png" />
     <Resource Include="Images\Locations\NorthernLightForest.png" />
     <Resource Include="Images\Locations\Seller.png" />
+    <Resource Include="Images\Locations\WesternBorder.png" />
   </ItemGroup>
 
 </Project>
