@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Engine.Factories;
 using Engine.Models;
 
 namespace Engine.ViewModels
 {
     public class GameSession
     {
+        public World CurrentWorld { get; set; }
         public Player CurrentPlayer { get; set; }
         public Location CurrentLocation { get; set; }   
         public GameSession() 
@@ -22,12 +24,9 @@ namespace Engine.ViewModels
             CurrentPlayer.HitPoints = 5;
 
 
-            CurrentLocation = new Location();
-            CurrentLocation.Name = "Home";
-            CurrentLocation.XCoordinate = 0;
-            CurrentLocation.YCoordinate = -1;
-            CurrentLocation.Description = "Sweet home,leave comfort zone once in 30 minutes";
-            CurrentLocation.ImageName = "pack://application:,,,/Engine;component/Images/Locations/Home.png";
+            WorldFactory factory = new WorldFactory();
+            CurrentWorld = factory.CreateWorld();
+            CurrentLocation = CurrentWorld.LocationAt(3, 0);
         }
     }
 }
