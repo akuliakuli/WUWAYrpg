@@ -20,8 +20,8 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="#03120E" Content="Menu"></Label>
-        <Grid Grid.Row="1" Grid.Column="0" Background="#3E505B">
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="#03120E" Content="Menu" Foreground="White"></Label>
+        <Grid Grid.Row="1" Grid.Column="0" Background="#3E505B" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -37,18 +37,18 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Row="0" Grid.Column="0" Content="Name:"/>
-            <Label Grid.Row="0" Grid.Column="1" Content="{Binding CurrentPlayer.Name}"/>
-            <Label Grid.Row="1" Grid.Column="0" Content="Class:"/>
-            <Label Grid.Row="1" Grid.Column="1" Content="{Binding CurrentPlayer.CharacterClass}"/>
-            <Label Grid.Row="2" Grid.Column="0" Content="Hit points:"/>
-            <Label Grid.Row="2" Grid.Column="1" Content="{Binding CurrentPlayer.HitPoints}"/>
-            <Label Grid.Row="3" Grid.Column="0" Content="Gold:"/>
-            <Label Grid.Row="3" Grid.Column="1" Content="{Binding CurrentPlayer.Gold}"/>
-            <Label Grid.Row="4" Grid.Column="0" Content="XP:"/>
-            <Label Grid.Row="4" Grid.Column="1" Content="{Binding CurrentPlayer.ExperiencePoints}"/>
-            <Label Grid.Row="5" Grid.Column="0" Content="Level:"/>
-            <Label Grid.Row="5" Grid.Column="1" Content="{Binding CurrentPlayer.Level}"/>
+            <Label Grid.Row="0" Grid.Column="0" Content="Name:" Foreground="LightGray"/>
+            <Label Grid.Row="0" Grid.Column="1" Content="{Binding CurrentPlayer.Name}" Foreground="LightGray"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="Class:" Foreground="LightGray"/>
+            <Label Grid.Row="1" Grid.Column="1" Content="{Binding CurrentPlayer.CharacterClass}" Foreground="LightGray"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="Hit points:" Foreground="LightGray"/>
+            <Label Grid.Row="2" Grid.Column="1" Content="{Binding CurrentPlayer.HitPoints}" Foreground="LightGray"/>
+            <Label Grid.Row="3" Grid.Column="0" Content="Gold:" Foreground="LightGray"/>
+            <Label Grid.Row="3" Grid.Column="1" Content="{Binding CurrentPlayer.Gold}" Foreground="LightGray"/>
+            <Label Grid.Row="4" Grid.Column="0" Content="XP:" Foreground="LightGray"/>
+            <Label Grid.Row="4" Grid.Column="1" Content="{Binding CurrentPlayer.ExperiencePoints}" Foreground="LightGray"/>
+            <Label Grid.Row="5" Grid.Column="0" Content="Level:" Foreground="LightGray"/>
+            <Label Grid.Row="5" Grid.Column="1" Content="{Binding CurrentPlayer.Level}" Foreground="LightGray"/>
         </Grid>
         <Grid Grid.Row="1" Grid.Column="1"
               Background="#C7CEDB">
@@ -92,7 +92,29 @@
 
             </Border>
         </Grid>
-        <Label Grid.Row="2" Grid.Column="0" Background="#26413C" Content="Inventory"></Label>
+        <Grid Grid.Row="2" Grid.Column="0"
+              Background="#26413C">
+
+            <TabControl>
+                <TabItem Header="Inventory">
+                    <DataGrid ItemsSource="{Binding CurrentPlayer.Inventory}"
+                              AutoGenerateColumns="False"
+                              HeadersVisibility="Column">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Description"
+                                                Binding="{Binding Name}"
+                                                Width="*"/>
+                            <DataGridTextColumn Header="Price"
+                                                Binding="{Binding Price}"
+                                                Width="Auto"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Quests">
+                    <Label Content="First steps in this magical world"></Label>
+                </TabItem>
+            </TabControl>
+        </Grid>
         <Grid Grid.Row="2" Grid.Column="1"
       Background="#93B7BE">
             <Grid.RowDefinitions>
