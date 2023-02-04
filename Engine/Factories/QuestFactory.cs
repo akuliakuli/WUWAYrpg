@@ -22,6 +22,14 @@ namespace Engine.Factories
                                   itemsToComplete,
                                   25, 10,
                                   rewardItems));
+            _quests.Add(new Quest(
+                    2,
+                    "Fight the ancient spider in field",
+                    "Try to defeat the old spider which been terrifying the city",
+                    itemsToComplete,
+                    25, 100,
+                    rewardItems
+                ));
         }
         internal static Quest GetQuestByID(int id)
         {
