@@ -39,8 +39,9 @@ namespace Engine.Factories
             newWorld.AddLocation(0, 2, "Herbalist's garden",
                 "Blossoming garden hiding the dangers of nature",
                 "pack://application:,,,/Engine;component/Images/Locations/LateBloomGarden.png");
-            newWorld.AddLocation(3, 0, "Western Border",
-               "Western border of this nagluka country",
+            newWorld.LocationAt(2 , 0).QuestsAvailableHere.Add(QuestFactory.GetQuestByID(2));
+            newWorld.AddLocation(3, 0, "Eastern Border",
+               "Eastern border of this nagluka country",
                "pack://application:,,,/Engine;component/Images/Locations/WesternBorder.png");
             return newWorld;
         }
