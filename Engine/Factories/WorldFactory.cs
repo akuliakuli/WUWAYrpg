@@ -35,6 +35,7 @@ namespace Engine.Factories
             newWorld.AddLocation(0, 1, "Hut of Herb",
                 "Cozy hut,example of eco-architechture",
                 "pack://application:,,,/Engine;component/Images/Locations/HutOfHerb.png");
+            newWorld.LocationAt(0, 1).QuestsAvailableHere.Add(QuestFactory.GetQuestByID(1));
             newWorld.AddLocation(0, 2, "Herbalist's garden",
                 "Blossoming garden hiding the dangers of nature",
                 "pack://application:,,,/Engine;component/Images/Locations/LateBloomGarden.png");
