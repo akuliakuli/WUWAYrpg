@@ -14,6 +14,7 @@ namespace Engine.Factories
             newWorld.AddLocation(-2, -1, "Field",
                 "This field have not seen good harvest for years",
                 "pack://application:,,,/Engine;component/Images/Locations/Fields.png");
+            newWorld.LocationAt(-2, -1).AddMonster(2, 100);
             newWorld.AddLocation(-1, -1, "Brook's House",
                 "Best place to drink is at your friends house,dont have to clean the mess after",
                 "pack://application:,,,/Engine;component/Images/Locations/Farm.png");
@@ -32,6 +33,7 @@ namespace Engine.Factories
             newWorld.AddLocation(2, 0, "Northern light Forest",
                 "The wonder of nature,no human words can describe the beauty of it",
                 "pack://application:,,,/Engine;component/Images/Locations/NorthernLightForest.png");
+            newWorld.LocationAt(2, 0).AddMonster(3, 100);
             newWorld.AddLocation(0, 1, "Hut of Herb",
                 "Cozy hut,example of eco-architechture",
                 "pack://application:,,,/Engine;component/Images/Locations/HutOfHerb.png");
@@ -39,6 +41,7 @@ namespace Engine.Factories
             newWorld.AddLocation(0, 2, "Herbalist's garden",
                 "Blossoming garden hiding the dangers of nature",
                 "pack://application:,,,/Engine;component/Images/Locations/LateBloomGarden.png");
+            newWorld.LocationAt(0, 2).AddMonster(1, 100);
             newWorld.LocationAt(2 , 0).QuestsAvailableHere.Add(QuestFactory.GetQuestByID(2));
             newWorld.AddLocation(3, 0, "Eastern Border",
                "Eastern border of this nagluka country",
