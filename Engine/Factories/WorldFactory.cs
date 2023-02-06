@@ -18,12 +18,16 @@ namespace Engine.Factories
             newWorld.AddLocation(-1, -1, "Brook's House",
                 "Best place to drink is at your friends house,dont have to clean the mess after",
                 "pack://application:,,,/Engine;component/Images/Locations/Farm.png");
+            newWorld.LocationAt(-1, -1).TraderHere =
+             TraderFactory.GetTraderByName("Farmer Brook");
             newWorld.AddLocation(0, -1, "Home",
                 "Sweet Home,dont forget to leave the comfort zone once in 30 minutes",
                 "pack://application:,,,/Engine;component/Images/Locations/Home.png");
             newWorld.AddLocation(-1, 0, "Elzar's moving shop",
                 "Place where prices dont bite,but owner's do",
                 "pack://application:,,,/Engine;component/Images/Locations/Seller.png");
+            newWorld.LocationAt(-1, 0).TraderHere =
+           TraderFactory.GetTraderByName("Elzar");
             newWorld.AddLocation(0, 0, "Town square",
                 "Center of this beautiful city",
                 "pack://application:,,,/Engine;component/Images/Locations/CityCentre.png");
@@ -37,6 +41,8 @@ namespace Engine.Factories
             newWorld.AddLocation(0, 1, "Hut of Herb",
                 "Cozy hut,example of eco-architechture",
                 "pack://application:,,,/Engine;component/Images/Locations/HutOfHerb.png");
+            newWorld.LocationAt(0, 1).TraderHere =
+              TraderFactory.GetTraderByName("Herbert the Herbalist");
             newWorld.LocationAt(0, 1).QuestsAvailableHere.Add(QuestFactory.GetQuestByID(1));
             newWorld.AddLocation(0, 2, "Herbalist's garden",
                 "Blossoming garden hiding the dangers of nature",
