@@ -3,56 +3,85 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 using Engine.Models;
 namespace Engine.Factories
 {
     internal static class WorldFactory
     {
+        private const string GAME_DATA_FILENAME = ".\\GameData\\Locations.xml";
         internal static World CreateWorld()
         {
-            World newWorld = new World();
-            newWorld.AddLocation(-2, -1, "Field",
-                "This field have not seen good harvest for years",
-                "pack://application:,,,/Engine;component/Images/Locations/Fields.png");
-            newWorld.LocationAt(-2, -1).AddMonster(2, 100);
-            newWorld.AddLocation(-1, -1, "Brook's House",
-                "Best place to drink is at your friends house,dont have to clean the mess after",
-                "pack://application:,,,/Engine;component/Images/Locations/Farm.png");
-            newWorld.LocationAt(-1, -1).TraderHere =
-             TraderFactory.GetTraderByName("Farmer Brook");
-            newWorld.AddLocation(0, -1, "Home",
-                "Sweet Home,dont forget to leave the comfort zone once in 30 minutes",
-                "pack://application:,,,/Engine;component/Images/Locations/Home.png");
-            newWorld.AddLocation(-1, 0, "Elzar's moving shop",
-                "Place where prices dont bite,but owner's do",
-                "pack://application:,,,/Engine;component/Images/Locations/Seller.png");
-            newWorld.LocationAt(-1, 0).TraderHere =
-           TraderFactory.GetTraderByName("Elzar");
-            newWorld.AddLocation(0, 0, "Town square",
-                "Center of this beautiful city",
-                "pack://application:,,,/Engine;component/Images/Locations/CityCentre.png");
-            newWorld.AddLocation(1, 0, "Town Gate",
-                "No trespassing.",
-                "pack://application:,,,/Engine;component/Images/Locations/DragonGate.png");
-            newWorld.AddLocation(2, 0, "Northern light Forest",
-                "The wonder of nature,no human words can describe the beauty of it",
-                "pack://application:,,,/Engine;component/Images/Locations/NorthernLightForest.png");
-            newWorld.LocationAt(2, 0).AddMonster(3, 100);
-            newWorld.AddLocation(0, 1, "Hut of Herb",
-                "Cozy hut,example of eco-architechture",
-                "pack://application:,,,/Engine;component/Images/Locations/HutOfHerb.png");
-            newWorld.LocationAt(0, 1).TraderHere =
-              TraderFactory.GetTraderByName("Herbert the Herbalist");
-            newWorld.LocationAt(0, 1).QuestsAvailableHere.Add(QuestFactory.GetQuestByID(1));
-            newWorld.AddLocation(0, 2, "Herbalist's garden",
-                "Blossoming garden hiding the dangers of nature",
-                "pack://application:,,,/Engine;component/Images/Locations/LateBloomGarden.png");
-            newWorld.LocationAt(0, 2).AddMonster(1, 100);
-            newWorld.LocationAt(2 , 0).QuestsAvailableHere.Add(QuestFactory.GetQuestByID(2));
-            newWorld.AddLocation(3, 0, "Eastern Border",
-               "Eastern border of this nagluka country",
-               "pack://application:,,,/Engine;component/Images/Locations/WesternBorder.png");
-            return newWorld;
+            World world = new World();
+            if (File.Exists(GAME_DATA_FILENAME))
+            {
+                XmlDocument data = new XmlDocument();
+                data.LoadXml(File.ReadAllText(GAME_DATA_FILENAME));
+                string rootImagePath =
+                    data.SelectSingleNode("/Locations")
+                        .AttributeAsString("RootImagePath");
+                LoadLocationsFromNodes(world,
+                                       rootImagePath,
+                                       data.SelectNodes("/Locations/Location"));
+            }
+            else
+            {
+                throw new FileNotFoundException($"Missing data file: {GAME_DATA_FILENAME}");
+            }
+            return world;
+        }
+        private static void LoadLocationsFromNodes(World world, string rootImagePath, XmlNodeList nodes)
+        {
+            if (nodes == null)
+            {
+                return;
+            }
+            foreach (XmlNode node in nodes)
+            {
+                Location location =
+                    new Location(node.AttributeAsInt("X"),
+                                 node.AttributeAsInt("Y"),
+                                 node.AttributeAsString("Name"),
+                                 node.SelectSingleNode("./Description")?.InnerText ?? "",
+                                 $".{rootImagePath}{node.AttributeAsString("ImageName")}");
+                AddMonsters(location, node.SelectNodes("./Monsters/Monster"));
+                AddQuests(location, node.SelectNodes("./Quests/Quest"));
+                AddTrader(location, node.SelectSingleNode("./Trader"));
+                world.AddLocation(location);
+            }
+        }
+        private static void AddMonsters(Location location, XmlNodeList monsters)
+        {
+            if (monsters == null)
+            {
+                return;
+            }
+            foreach (XmlNode monsterNode in monsters)
+            {
+                location.AddMonster(monsterNode.AttributeAsInt("ID"),
+                                    monsterNode.AttributeAsInt("Percent"));
+            }
+        }
+        private static void AddQuests(Location location, XmlNodeList quests)
+        {
+            if (quests == null)
+            {
+                return;
+            }
+            foreach (XmlNode questNode in quests)
+            {
+                location.QuestsAvailableHere
+                        .Add(QuestFactory.GetQuestByID(questNode.AttributeAsInt("ID")));
+            }
+        }
+        private static void AddTrader(Location location, XmlNode traderHere)
+        {
+            if (traderHere == null)
+            {
+                return;
+            }
+            location.TraderHere =
+                TraderFactory.GetTraderByName(traderHere.AttributeAsString("Name"));
         }
     }
 }
