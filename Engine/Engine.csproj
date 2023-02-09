@@ -7,32 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\Locations\CityCentre.png" />
-    <None Remove="Images\Locations\DragonGate.png" />
-    <None Remove="Images\Locations\Farm.png" />
-    <None Remove="Images\Locations\Fields.png" />
-    <None Remove="Images\Locations\Home.png" />
-    <None Remove="Images\Locations\HutofHerb.png" />
-    <None Remove="Images\Locations\LateBloomGarden.png" />
-    <None Remove="Images\Locations\NorthernLightForest.png" />
-    <None Remove="Images\Locations\Seller.png" />
-    <None Remove="Images\Locations\WesternBorder.png" />
     <None Remove="Images\Monsters\GiantSpider.png" />
     <None Remove="Images\Monsters\Rat.png" />
     <None Remove="Images\Monsters\Snake.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\Locations\CityCentre.png" />
-    <Resource Include="Images\Locations\DragonGate.png" />
-    <Resource Include="Images\Locations\Farm.png" />
-    <Resource Include="Images\Locations\Fields.png" />
-    <Resource Include="Images\Locations\Home.png" />
-    <Resource Include="Images\Locations\HutofHerb.png" />
-    <Resource Include="Images\Locations\LateBloomGarden.png" />
-    <Resource Include="Images\Locations\NorthernLightForest.png" />
-    <Resource Include="Images\Locations\Seller.png" />
-    <Resource Include="Images\Locations\WesternBorder.png" />
     <Resource Include="Images\Monsters\GiantSpider.png" />
     <Resource Include="Images\Monsters\Rat.png" />
     <Resource Include="Images\Monsters\Snake.png" />
@@ -40,6 +20,39 @@
 
   <ItemGroup>
     <None Update="GameData\GameItems.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="GameData\Locations.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\Locations\CityCentre.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\Locations\DragonGate.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\Locations\Farm.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\Locations\Fields.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\Locations\Home.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\Locations\HutofHerb.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\Locations\LateBloomGarden.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\Locations\NorthernLightForest.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\Locations\Seller.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\Locations\WesternBorder.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
