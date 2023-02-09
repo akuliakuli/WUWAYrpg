@@ -8,14 +8,14 @@
 	</Location>
 	<Location X="-1" Y="-1" Name="Farmer's House" ImageName="Farm.png">
 		<Description><![CDATA[Best place to drink, you dont have to clean the mess afterwards]]></Description>
-		<Trader Name="Farmer Ted"/>
+		<Trader ID="2"/>
 	</Location>
 	<Location X="0" Y="-1" Name="Home" ImageName="Home.png">
 		<Description><![CDATA[Home Sweet homee <3]]></Description>
 	</Location>
 	<Location X="-1" Y="0" Name="Elzar's shp[" ImageName="Seller.png">
 		<Description><![CDATA[The shop of elzar, the widely known seller.]]></Description>
-		<Trader Name="Susan"/>
+		<Trader ID="1"/>
 	</Location>
 	<Location X="0" Y="0" Name="Nagluka's centre" ImageName="CityCentre.png">
 		<Description><![CDATA[Yep fully walkable city centre why not]]></Description>
@@ -34,7 +34,7 @@
 		<Quests>
 			<Quest ID="1"/>
 		</Quests>
-		<Trader Name="Pete the Herbalist"/>
+		<Trader ID="3"/>
 	</Location>
 	<Location X="0" Y="2" Name="Herbalist's Garden" ImageName="LateBloomGarden.png">
 		<Description><![CDATA[There are many plants, many insects, and many creeps]]></Description>
