@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -36,6 +36,12 @@
     <Resource Include="Images\Monsters\GiantSpider.png" />
     <Resource Include="Images\Monsters\Rat.png" />
     <Resource Include="Images\Monsters\Snake.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="GameData\GameItems.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
