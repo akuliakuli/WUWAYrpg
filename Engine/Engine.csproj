@@ -7,9 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="GameData\Locations.xml" />
     <None Remove="Images\Monsters\GiantSpider.png" />
     <None Remove="Images\Monsters\Rat.png" />
     <None Remove="Images\Monsters\Snake.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="GameData\Locations.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -20,9 +27,6 @@
 
   <ItemGroup>
     <None Update="GameData\GameItems.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="GameData\Locations.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Images\Locations\CityCentre.png">

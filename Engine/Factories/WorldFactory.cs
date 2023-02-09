@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using Engine.Models;
+using Engine.Shared;
+
 namespace Engine.Factories
 {
     internal static class WorldFactory
