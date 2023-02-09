@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Locations RootImagePath="/Images/Locations/">
+	<Location X="-2" Y="-1" Name="Farmer's Field" ImageName="Fields.png">
+		<Description><![CDATA[These fields have not seen good harvest in years]]></Description>
+		<Monsters>
+			<Monster ID="2" Percent="100"/>
+		</Monsters>
+	</Location>
+	<Location X="-1" Y="-1" Name="Farmer's House" ImageName="Farm.png">
+		<Description><![CDATA[Best place to drink, you dont have to clean the mess afterwards]]></Description>
+		<Trader Name="Farmer Ted"/>
+	</Location>
+	<Location X="0" Y="-1" Name="Home" ImageName="Home.png">
+		<Description><![CDATA[Home Sweet homee <3]]></Description>
+	</Location>
+	<Location X="-1" Y="0" Name="Elzar's shp[" ImageName="Seller.png">
+		<Description><![CDATA[The shop of elzar, the widely known seller.]]></Description>
+		<Trader Name="Susan"/>
+	</Location>
+	<Location X="0" Y="0" Name="Nagluka's centre" ImageName="CityCentre.png">
+		<Description><![CDATA[Yep fully walkable city centre why not]]></Description>
+	</Location>
+	<Location X="1" Y="0" Name="Dragon Gate" ImageName="DragonGate.png">
+		<Description><![CDATA[There is a gate here, protecting the town from giant spiders.]]></Description>
+	</Location>
+	<Location X="2" Y="0" Name="Northern Light Forest" ImageName="NorthernLightForest.png">
+		<Description><![CDATA[Embrace the power and beauty of the nature]]></Description>
+		<Monsters>
+			<Monster ID="3" Percent="100"/>
+		</Monsters>
+	</Location>
+	<Location X="0" Y="1" Name="Herbert's Hut" ImageName="HutOfHerb.png">
+		<Description><![CDATA[The good example of eco-architecture, nolimit ]]></Description>
+		<Quests>
+			<Quest ID="1"/>
+		</Quests>
+		<Trader Name="Pete the Herbalist"/>
+	</Location>
+	<Location X="0" Y="2" Name="Herbalist's Garden" ImageName="LateBloomGarden.png">
+		<Description><![CDATA[There are many plants, many insects, and many creeps]]></Description>
+		<Monsters>
+			<Monster ID="1" Percent="100"/>
+		</Monsters>
+	</Location>
+</Locations>
