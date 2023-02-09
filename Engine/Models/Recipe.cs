@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Engine.Models
 {
     public class Recipe
@@ -12,6 +9,14 @@ namespace Engine.Models
         public string Name { get; }
         public List<ItemQuantity> Ingredients { get; } = new List<ItemQuantity>();
         public List<ItemQuantity> OutputItems { get; } = new List<ItemQuantity>();
+        public string ToolTipContents =>
+            "Ingredients" + Environment.NewLine +
+            "===========" + Environment.NewLine +
+            string.Join(Environment.NewLine, Ingredients.Select(i => i.QuantityItemDescription)) +
+            Environment.NewLine + Environment.NewLine +
+            "Creates" + Environment.NewLine +
+            "===========" + Environment.NewLine +
+            string.Join(Environment.NewLine, OutputItems.Select(i => i.QuantityItemDescription));
         public Recipe(int id, string name)
         {
             ID = id;
@@ -33,3 +38,4 @@ namespace Engine.Models
         }
     }
 }
+Step

@@ -1,7 +1,5 @@
 ﻿using Engine.ViewModels;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-
 namespace TestEngine.ViewModels
 {
     [TestClass]
@@ -12,7 +10,7 @@ namespace TestEngine.ViewModels
         {
             GameSession gameSession = new GameSession();
             Assert.IsNotNull(gameSession.CurrentPlayer);
-            Assert.AreEqual("Town square", gameSession.CurrentLocation.Name);
+            Assert.AreEqual("Town Square", gameSession.CurrentLocation.Name);
         }
         [TestMethod]
         public void TestPlayerMovesHomeAndIsCompletelyHealedOnKilled()
