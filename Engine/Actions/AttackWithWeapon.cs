@@ -1,10 +1,5 @@
-﻿using Engine.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using System;
+using Engine.Models;
 namespace Engine.Actions
 {
     public class AttackWithWeapon : BaseAction, IAction
@@ -18,11 +13,11 @@ namespace Engine.Actions
             {
                 throw new ArgumentException($"{itemInUse.Name} is not a weapon");
             }
-            if (_minimumDamage < 0)
+            if (minimumDamage < 0)
             {
                 throw new ArgumentException("minimumDamage must be 0 or larger");
             }
-            if (_maximumDamage < _minimumDamage)
+            if (maximumDamage < minimumDamage)
             {
                 throw new ArgumentException("maximumDamage must be >= minimumDamage");
             }
